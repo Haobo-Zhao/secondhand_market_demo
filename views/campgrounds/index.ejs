@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<div class = "container">
+	<header class = "jumbotron">
+		<div>
+			<h1>Welcome to the garage!!!</h1>
+			<!-- <a class = "btn btn-primary" href = "/">Back to Home page.</a> -->
+			<h4>No pain, no gain.</h4>
+			<p>
+				<a class = "btn btn-success" href = "/campgrounds/new">Add a new car!!!</a>
+			</p>
+		</div>
+	</header>
+
+	<p><h3>Pick one you like!!!</h3></p>
+
+	<div class = "row text-center" style = "display: flex; flex-wrap: wrap;">
+		<% campgrounds.forEach(function(campground){ %>
+			<div class = "col-md-3 col-sm-4">
+				<div class = "thumbnail">
+					<img src = " <%= campground.image %> ">
+					<div class = "caption">
+						<h3>
+							<%= campground.name %>
+						</h3>
+					</div>
+					<p>
+						<a href="/campgrounds/<%= campground._id %>" class = "btn btn-primary">Show me more</a>
+					</p>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<% include ../partials/footer %>
